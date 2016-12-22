@@ -1,16 +1,15 @@
 ﻿using System;
-using NewUITestFW.Controls;
 using OpenQA.Selenium;
 
-namespace NewUITestFW.Utils
+namespace NewUITestFW.Extensions
 {
-    static class WebDriverUtils
+    internal static class WebDriverExtensions
     {
         public static void WaitForPageIsLoaded(this IWebDriver driver)
         {
             driver.WaitForCondition(dri =>
             {
-                string state = "";
+                var state = dri.ExecuteJS("return document.readyState").ToString();
                 return state == "complete";
             }, 10);
         }
@@ -26,7 +25,7 @@ namespace NewUITestFW.Utils
                 }
                 catch (Exception e)
                 {
-                    
+
                     throw;
                 }
             };

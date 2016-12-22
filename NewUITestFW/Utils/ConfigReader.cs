@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
+using NewUITestFW.Controls;
 
 namespace NewUITestFW.Utils
 {
-    class ConfigReader
+    internal class ConfigReader
     {
-        public string InitializeTest()
+        public static string ReadProperty(string property)
         {
-            return ConfigurationManager.AppSettings["appUrl"].ToString();
+            return ConfigurationManager.AppSettings[property];
         }
     }
 }
