@@ -62,6 +62,8 @@
     <Compile Include="Controls\Locator.cs" />
     <Compile Include="Controls\TextInput.cs" />
     <Compile Include="Controls\WebDriverFactory.cs" />
+    <Compile Include="DemoQAPages\HomePage.cs" />
+    <Compile Include="DemoQAPages\RegistrationPage.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="Domain\UserRepository.cs" />
     <Compile Include="PageObjects\BasePage.cs" />
