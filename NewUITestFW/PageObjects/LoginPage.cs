@@ -1,21 +1,17 @@
-﻿using NewUITestFW.Controls;
-using NewUITestFW.Domain;
+﻿using NewUITestFW.Domain;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using static NSelene.Selene;
 
 namespace NewUITestFW.PageObjects
 {
-    public class LoginPage
+    public class LoginPage : BasePage
     {
         [FindsBy(How = How.Name, Using = "UserName")] private IWebElement UserName;
         [FindsBy(How = How.Name, Using = "Password")] private IWebElement Password;
         [FindsBy(How = How.Name, Using = "Login")] private IWebElement LogIn;
 
-
-        public LoginPage()
-        {
-            PageFactory.InitElements(Driver.Instance, this);
-        }
+        public bool IsAt => LogIn.Displayed;
 
         public void Login(User user)
         {
@@ -24,16 +20,17 @@ namespace NewUITestFW.PageObjects
             LogIn.Submit();
         }
 
-        public void Login(string name, string pass)
+        public HomePage Login(string name, string pass)
         {
             UserName.SendKeys(name);
             Password.SendKeys(pass);
             LogIn.Submit();
+            return new HomePage();
         }
 
-        public static void GoTo()
+        public void GoTo()
         {
-            Driver.Instance.Navigate().GoToUrl("http://executeautomation.com/demosite/Login.html");
+            GetWebDriver().Navigate().GoToUrl("http://executeautomation.com/demosite/Login.html");
         }
     }
 }

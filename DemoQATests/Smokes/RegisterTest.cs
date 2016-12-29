@@ -6,20 +6,20 @@ namespace DemoQATests.Smokes
 {
     class RegisterTest
     {
-        [SetUp]
+        //[SetUp]
         public void Init()
         {
             Driver.Initialize();
         }
 
-        [Test]
+        //[Test]
         public void NewUserCanBeRegistered()
         {
             new RegistrationPage();
 
         }
 
-        [TearDown]
+        //[TearDown]
         public void TearDown()
         {
             Driver.Close();

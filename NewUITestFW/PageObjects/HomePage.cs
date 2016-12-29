@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NewUITestFW.Controls;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace NewUITestFW.PageObjects
 {
-    public class HomePage
+    public class HomePage : BasePage
     {
-        public static bool IsAt {
-            get
-            {
-                var logout = Driver.Instance.FindElement(By.XPath(".//span[text()='Logout']"));
-                return logout.Displayed;
-            }
+        [FindsBy(How = How.XPath, Using = ".//*[text()='Logout']")] private IWebElement LogOut;
+
+        public bool IsAt => LogOut.Displayed;
+
+        public LoginPage LogOutFromApp()
+        {
+            LogOut.Click();
+            return new LoginPage();
         }
     }
 }

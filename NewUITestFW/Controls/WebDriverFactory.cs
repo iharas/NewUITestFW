@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
@@ -8,7 +6,7 @@ using OpenQA.Selenium.IE;
 
 namespace NewUITestFW.Controls
 {
-    internal class WebDriverFactory
+    public class WebDriverFactory
     {
         private IWebDriver _driver;
 
@@ -30,9 +28,19 @@ namespace NewUITestFW.Controls
             }
             return _driver;
         }
+
+        public void Close()
+        {
+            _driver?.Quit();
+        }
+
+        public IWebDriver GetDriverInstance()
+        {
+            return _driver;
+        }
     }
 
-    internal enum Browsers
+    public enum Browsers
     {
         Chrome,
         Firefox,

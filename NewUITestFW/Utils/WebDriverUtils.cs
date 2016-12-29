@@ -4,7 +4,7 @@ using OpenQA.Selenium;
 
 namespace NewUITestFW.Utils
 {
-    static class WebDriverUtils
+    public static class WebDriverUtils
     {
         public static void WaitForPageIsLoaded(this IWebDriver driver)
         {
